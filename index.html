@@ -1,18 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 2 - Java Script </title>
+<meta charset="UTF-8">
+<title>Quiz de Tecnologia</title>
 </head>
 <body>
-    <h1>Apresentação</h1> 
-    <p>Olá, meu nome é Izael, sou estudante do Nass, moro no Brasil-Paraná-Santa Amélia, estudo no ensino médio, tenho 18 anos, sou altas habilidades. </p>
-    <img src="download.png" alt="Imagem do aluno Izael">
-    <h2 id = "perguntas">perguntas</h2>
-    <h3>Qual é o seu nome?</h3>
-    <button onclick="respostas()">Izael</button>
-    <button onclick="respostas()">Priscila</button>
-    <button onclick="respostas()">João</button>
+
+<h1>🚀 Quiz de Tecnologia</h1>
+
+<p id="pergunta">Clique em "Começar" para iniciar!</p>
+
+<button onclick="comecar()">Começar</button>
+
+<div id="botoes"></div>
+
+<h2 id="resultado"></h2>
+
+<script>
+
+let pontos = 0;
+
+function comecar() {
+    document.getElementById("pergunta").innerHTML =
+        "1. O que é JavaScript?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="resposta1('A')">Uma linguagem de programação</button>
+        <button onclick="resposta1('B')">Um navegador</button>
+        <button onclick="resposta1('C')">Um computador</button>
+    `;
+}
+
+function resposta1(opcao) {
+
+    if(opcao == "A"){
+        pontos++;
+        alert("✅ Correto!");
+    }else{
+        alert("❌ Tente novamente!");
+    }
+
+    document.getElementById("pergunta").innerHTML =
+        "2. Qual comando mostra uma mensagem na tela?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="resposta2('A')">print()</button>
+        <button onclick="resposta2('B')">alert()</button>
+        <button onclick="resposta2('C')">mostrar()</button>
+    `;
+}
+
+function resposta2(opcao) {
+
+    if(opcao == "B"){
+        pontos++;
+        alert("✅ Correto!");
+    }else{
+        alert("❌ Resposta incorreta!");
+    }
+
+    document.getElementById("pergunta").innerHTML =
+        "3. Para que serve o prompt()?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="finalizar('A')">Pedir informações ao usuário</button>
+        <button onclick="finalizar('B')">Criar imagens</button>
+        <button onclick="finalizar('C')">Fechar o navegador</button>
+    `;
+}
+
+function finalizar(opcao){
+
+    if(opcao == "A"){
+        pontos++;
+        alert("✅ Correto!");
+    }else{
+        alert("❌ Incorreto!");
+    }
+
+    document.getElementById("pergunta").innerHTML =
+        "Quiz Finalizado!";
+
+    document.getElementById("botoes").innerHTML = "";
+
+    document.getElementById("resultado").innerHTML =
+        `🏆 Você fez ${pontos} de 3 pontos!`;
+}
+
+</script>
+
 </body>
 </html>
